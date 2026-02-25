@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* 60-30-10 palette: 60% deep navy, 30% secondary navys, 10% white accent */
+    --background: 225 50% 4%;
+    --foreground: 0 0% 98%;
+    --card: 225 45% 7%;
+    --card-foreground: 0 0% 98%;
+    --popover: 225 45% 7%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 225 50% 4%;
+    --secondary: 225 30% 12%;
+    --secondary-foreground: 0 0% 90%;
+    --muted: 225 25% 10%;
+    --muted-foreground: 220 15% 55%;
+    --accent: 225 30% 16%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 225 25% 15%;
+    --input: 225 25% 15%;
+    --ring: 0 0% 100%;
+    --chart-1: 200 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 280 65% 60%;
+    --chart-4: 340 75% 55%;
+    --chart-5: 42 78% 55%;
+    --radius: 0.75rem;
+    --sidebar-background: 225 50% 4%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 225 50% 4%;
+    --sidebar-accent: 225 30% 12%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 225 25% 15%;
+    --sidebar-ring: 0 0% 100%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* ===== Luminance Progressive Sections ===== */
+/* Saturacao progressiva: cada secao sobe 2-4% de luminancia */
+.section-depth-1 {
+  background-color: hsl(225 50% 4%);
+}
+.section-depth-2 {
+  background-color: hsl(225 48% 5.5%);
+}
+.section-depth-3 {
+  background-color: hsl(225 45% 7%);
+}
+.section-depth-4 {
+  background-color: hsl(225 42% 5%);
+}
+.section-depth-5 {
+  background-color: hsl(225 48% 6%);
+}
+.section-depth-6 {
+  background-color: hsl(225 45% 5%);
+}
+
+/* ===== Luminance Anchor Glow ===== */
+.glow-anchor {
+  box-shadow: 0 0 60px -12px hsl(0 0% 100% / 0.06);
+}
+.glow-anchor-hover:hover {
+  box-shadow: 0 0 40px -8px hsl(0 0% 100% / 0.10);
+}
+.glow-border {
+  border-color: hsl(0 0% 100% / 0.12);
+}
+.glow-border-hover:hover {
+  border-color: hsl(0 0% 100% / 0.22);
+}
+
+/* ===== Perspective Card ===== */
+.perspective-card {
+  perspective: 1000px;
+}
+.perspective-card-inner {
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.perspective-card:hover .perspective-card-inner {
+  transform: rotateX(2deg) rotateY(-1deg) translateY(-4px);
+}
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(225 50% 4%);
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(225 25% 15%);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(0 0% 100% / 0.3);
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection */
+::selection {
+  background: hsl(0 0% 100% / 0.15);
+  color: hsl(0 0% 100%);
+}
+
+/* ===== Parallax Helper ===== */
+.parallax-container {
+  will-change: transform;
+}
